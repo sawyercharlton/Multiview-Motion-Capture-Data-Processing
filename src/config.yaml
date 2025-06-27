@@ -1,16 +1,26 @@
 match:
-  video_path_0: C:/Users/yuboh/GitHub/data/RecSync0/VID/VID_20250625_084506.mp4
-  video_path_1: C:/Users/yuboh/GitHub/data/RecSync1/VID/VID_20250625_084507.mp4
+#  video_path_0: C:/Users/yuboh/GitHub/data/RecSync0/VID/VID_20250626_100013.mp4
+#  video_path_1: C:/Users/yuboh/GitHub/data/RecSync1/VID/VID_20250626_100011.mp4
+
+#  video_path_0: C:/Users/yuboh/GitHub/data/RecSync0/VID/VID_20250626_092059.mp4
+#  video_path_1: C:/Users/yuboh/GitHub/data/RecSync1/VID/VID_20250626_092057.mp4
+
+  video_path_0: C:/Users/yuboh/GitHub/data/RecSync0/VID/VID_20250626_084658.mp4
+  video_path_1: C:/Users/yuboh/GitHub/data/RecSync1/VID/VID_20250626_084657.mp4
 
 #  video_path_0: C:/Users/yuboh/GitHub/data/RecSync0/VID/VID_20250624_125441.mp4
 #  video_path_1: C:/Users/yuboh/GitHub/data/RecSync1/VID/VID_20250624_125443.mp4
 
-  threshold: "5ms"  # human-readable format: ns, us, ms, s supported
+#  video_path_0: C:/Users/yuboh/GitHub/data/RecSync0/VID/VID_20250604_111537.mp4
+#  video_path_1: C:/Users/yuboh/GitHub/data/RecSync1/VID/VID_20250604_111538.mp4
+
+  threshold: "15ms"  # human-readable format: ns, us, ms, s supported
+  extract: false
   visualize: true
 
 stitch:
-  root: output/exp/VID_20250624_125441
-  threshold: "5ms"  # human-readable format: ns, us, ms, s supported
+  root: output/exp/VID_20250626_084658
+  threshold: "19ms"  # human-readable format: ns, us, ms, s supported
   left_subdir: "0"
   right_subdir: "1"
 
