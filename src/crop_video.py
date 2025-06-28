@@ -7,34 +7,36 @@ from tqdm import tqdm
 def load_video_path(config_path):
     with open(config_path, 'r') as f:
         config = yaml.safe_load(f)
-    return config['match']['video_path_1']
+    return config['video_path_2']
 
 
-def crop_video(video_path, crop_region=(800, 580, 580, 40)):
+def crop_video(video_path, crop_region=(800, 700, 190, 60)):
     x, y, w, h = crop_region
 
-    # Parse directory and filename
     original_dir = os.path.dirname(video_path)
     base_name = os.path.basename(video_path)
     name, ext = os.path.splitext(base_name)
 
-    # Create output path like: original_dir/name_cropped.ext
-    output_path = os.path.join(original_dir, f"{name}_cropped{ext}")
+    renamed_original_path = os.path.join(original_dir, f"{name}_ori{ext}")
+    cropped_output_path = os.path.join(original_dir, f"{name}{ext}")
 
-    # Abort if output already exists
-    if os.path.exists(output_path):
-        print(f"Output file already exists: {output_path}. Aborting.")
-        return
+    # If renamed file already exists, assume cropping was done
+    # if os.path.exists(cropped_output_path):
+    #     print(f"Cropped file already exists: {cropped_output_path}. Aborting.")
+    #     return
 
-    cap = cv2.VideoCapture(video_path)
+    os.rename(video_path, renamed_original_path)
+    print(f"Original file renamed to: {renamed_original_path}")
+
+    cap = cv2.VideoCapture(renamed_original_path)
     if not cap.isOpened():
-        raise FileNotFoundError(f"Failed to open video: {video_path}")
+        raise FileNotFoundError(f"Failed to open video: {renamed_original_path}")
 
     fps = cap.get(cv2.CAP_PROP_FPS)
     total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-    out = cv2.VideoWriter(output_path, fourcc, fps, (w, h))
+    out = cv2.VideoWriter(cropped_output_path, fourcc, fps, (w, h))
 
     with tqdm(total=total_frames, desc="Cropping video", unit="frame") as pbar:
         while True:
@@ -47,7 +49,7 @@ def crop_video(video_path, crop_region=(800, 580, 580, 40)):
 
     cap.release()
     out.release()
-    print(f"Cropped video saved to: {output_path}")
+    print(f"Cropped video saved to: {cropped_output_path}")
 
 
 if __name__ == "__main__":

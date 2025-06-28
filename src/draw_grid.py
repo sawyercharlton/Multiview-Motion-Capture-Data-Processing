@@ -5,7 +5,7 @@ import yaml
 def load_video_path_0(config_path):
     with open(config_path, 'r') as f:
         config = yaml.safe_load(f)
-    return config['match']['video_path_1']
+    return config['video_path_2']
 
 
 def draw_grid(image, step=100, color=(0, 255, 0), thickness=1, label=True):
