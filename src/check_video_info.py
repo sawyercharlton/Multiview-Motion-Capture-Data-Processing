@@ -2,7 +2,7 @@ import cv2
 import os
 
 
-video_path = r"C:\Users\yuboh\GitHub\data\RecSync0\Standalone\20250626_190845.mp4"
+video_path = r"C:\Users\yuboh\GitHub\data\RecSync1\VID\VID_20250628_145220.mp4"
 
 if not os.path.exists(video_path):
     raise FileNotFoundError(f"Video not found: {video_path}")

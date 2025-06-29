@@ -10,7 +10,7 @@ def load_video_path(config_path):
     return config['video_path_2']
 
 
-def crop_video(video_path, crop_region=(800, 700, 190, 60)):
+def crop_video(video_path, crop_region=(800, 500, 240, 40)):
     x, y, w, h = crop_region
 
     original_dir = os.path.dirname(video_path)
