@@ -214,7 +214,7 @@ def match_frames_from_csv_multi(csv_path_left, csv_path_right_list, output_csv_p
     base_df.to_csv(output_csv_path, index=False, header=False)
     logging.info(f"Multi-match → {output_csv_path}")
 
-def match_frames_full_from_csv_multi(csv_path_left, csv_path_right_list, output_csv_path, threshold_ns):
+def match_frames_full_from_csv_multi(csv_path_left, csv_path_right_list, output_csv_path, threshold_ns, duration_0):
     df_left = pd.read_csv(csv_path_left, header=None, names=["t"])
     base_df = pd.DataFrame({'t': df_left["t"].astype(np.int64), 'left': df_left["t"].astype(np.int64)})
 
@@ -255,7 +255,8 @@ def match_frames_full_from_csv_multi(csv_path_left, csv_path_right_list, output_
     logging.info(f"matched_both: {matched_both}")
     logging.info(f"matched_1_only: {matched_1_only}")
     logging.info(f"matched_2_only: {matched_2_only}")
-
+    frame_rate_ratio = matched_both / duration_0 if duration_0 > 0 else 0
+    logging.info(f"Output video FPS = matched_both / length of video 0 = {frame_rate_ratio:.2f}")
     base_df.to_csv(output_csv_path, index=False)
     logging.info(f"Multi-match (full) → {output_csv_path}")
 
@@ -330,6 +331,12 @@ def main(config_path="config.yaml"):
 
     video_name_0 = Path(video_path_0).stem
     base_output = os.path.join("output", "exp", video_name_0)
+    cap = cv2.VideoCapture(video_path_0)
+    frame_count_0 = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    fps = cap.get(cv2.CAP_PROP_FPS)
+    duration_0 = frame_count_0 / fps if fps > 0 else 0
+    cap.release()
+
     os.makedirs(base_output, exist_ok=True)
 
     output_path_0 = os.path.join(base_output, "0")
@@ -364,7 +371,7 @@ def main(config_path="config.yaml"):
     matched_csv_full_path = os.path.join(base_output, f"matched_multi_{threshold_str_for_filename}_full.csv")
 
     match_frames_from_csv_multi(csv_0, [csv_1, csv_2], matched_csv_path, threshold_ns)
-    match_frames_full_from_csv_multi(csv_0, [csv_1, csv_2], matched_csv_full_path, threshold_ns)
+    match_frames_full_from_csv_multi(csv_0, [csv_1, csv_2], matched_csv_full_path, threshold_ns, duration_0)
 
 
 if __name__ == "__main__":

@@ -1,6 +1,34 @@
-video_path_1: C:/Users/yuboh/GitHub/data/RecSync0/VID/VID_20250628_114520.mp4
-video_path_0: C:/Users/yuboh/GitHub/data/RecSync1/VID/VID_20250628_114515.mp4
-video_path_2: C:/Users/yuboh/GitHub/data/RecSync2/VID/VID_20250628_114513.mp4
+video_path_0: C:/Users/yuboh/GitHub/data/RecSync0/VID/VID_20250707_101951.mp4 #
+video_path_1: C:/Users/yuboh/GitHub/data/RecSync1/VID/VID_20250707_102008.mp4
+video_path_2: C:/Users/yuboh/GitHub/data/RecSync2/VID/VID_20250707_101947.mp4
+
+#video_path_0: C:/Users/yuboh/GitHub/data/RecSync0/VID/VID_20250706_212936.mp4 #
+#video_path_1: C:/Users/yuboh/GitHub/data/RecSync1/VID/VID_20250706_212924.mp4
+#video_path_2: C:/Users/yuboh/GitHub/data/RecSync2/VID/VID_20250706_212923.mp4
+
+#video_path_0: C:/Users/yuboh/GitHub/data/RecSync0/VID/VID_20250706_195940.mp4
+#video_path_1: C:/Users/yuboh/GitHub/data/RecSync1/VID/VID_20250706_195959.mp4
+#video_path_2: C:/Users/yuboh/GitHub/data/RecSync2/VID/VID_20250706_195940.mp4
+
+#video_path_0: C:/Users/yuboh/GitHub/data/RecSync0/VID/VID_20250702_125408.mp4 #
+#video_path_1: C:/Users/yuboh/GitHub/data/RecSync1/VID/VID_20250702_125409.mp4
+#video_path_2: C:/Users/yuboh/GitHub/data/RecSync2/VID/VID_20250702_125347.mp4
+
+#video_path_0: C:/Users/yuboh/GitHub/data/RecSync0/VID/VID_20250702_125200.mp4 # chessboard
+#video_path_1: C:/Users/yuboh/GitHub/data/RecSync1/VID/VID_20250702_125202.mp4
+#video_path_2: C:/Users/yuboh/GitHub/data/RecSync2/VID/VID_20250702_125139.mp4
+
+#video_path_1: C:/Users/yuboh/GitHub/data/RecSync0/VID/VID_20250702_102259.mp4 # motion
+#video_path_2: C:/Users/yuboh/GitHub/data/RecSync1/VID/VID_20250702_102301.mp4
+#video_path_0: C:/Users/yuboh/GitHub/data/RecSync2/VID/VID_20250702_102239.mp4
+
+#video_path_0: C:/Users/yuboh/GitHub/data/RecSync0/VID/VID_20250702_102123.mp4 # chessboard
+#video_path_1: C:/Users/yuboh/GitHub/data/RecSync1/VID/VID_20250702_102125.mp4
+#video_path_2: C:/Users/yuboh/GitHub/data/RecSync2/VID/VID_20250702_102103.mp4
+
+#video_path_0: C:/Users/yuboh/GitHub/data/RecSync0/VID/VID_20250628_114520.mp4
+#video_path_1: C:/Users/yuboh/GitHub/data/RecSync1/VID/VID_20250628_114515.mp4
+#video_path_2: C:/Users/yuboh/GitHub/data/RecSync2/VID/VID_20250628_114513.mp4
 
 #video_path_0: C:/Users/yuboh/GitHub/data/RecSync1/VID/VID_20250628_145220.mp4 # Device 0 = S20+1 this time!
 #video_path_1: C:/Users/yuboh/GitHub/data/RecSync0/VID/VID_20250628_145207.mp4
@@ -26,4 +54,6 @@ video_path_2: C:/Users/yuboh/GitHub/data/RecSync2/VID/VID_20250628_114513.mp4
 
 threshold: "25ms"  # human-readable format: ns, us, ms, s supported
 extract: true
-stitch_ref: output/exp/VID_20250628_114520/matched_multi_25ms.csv
+get_matched_images: output/exp/VID_20250707_101951/matched_multi_25ms.csv
+stitch_ref: output/exp/VID_20250707_101951/matched_multi_25ms.csv
+images2video: output/exp/VID_20250707_101951/matched_multi_25ms

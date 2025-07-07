@@ -7,10 +7,10 @@ from tqdm import tqdm
 def load_video_path(config_path):
     with open(config_path, 'r') as f:
         config = yaml.safe_load(f)
-    return config['video_path_2']
+    return config['video_path_0']
 
 
-def crop_video(video_path, crop_region=(800, 500, 240, 40)):
+def crop_video(video_path, crop_region=(1050, 560, 220, 60)):
     x, y, w, h = crop_region
 
     original_dir = os.path.dirname(video_path)
