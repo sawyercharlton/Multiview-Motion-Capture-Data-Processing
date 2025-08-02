@@ -1,17 +1,8 @@
 # Multiview-Motion-Capture-Data-Processing
-
-
-[//]: # (## Result Samples)
-
-[//]: # (- Some current result samples can be found in `asset/`)
-
-[//]: # ()
-[//]: # (## Requirements)
-
-[//]: # (See `requirements.txt`)
+Process the output of [Synchronized-Video-Recorder-for-Android](https://github.com/yubohuangai/Synchronized-Video-Recorder-for-Android).
 
 ## Instructions
-- Hyperparameters can be found in `src/configs/`
+- Hyperparameters can be found in `config.yaml`
 
 ## Examples
  - Draw grid to get a reference for crop the video if needed
@@ -22,15 +13,18 @@
     ```ruby
     python crop_video.py
     ```
- - Calculate extrinsic parameters
+ - Extract frames and get matching information.
     ```ruby
-    python calc_extrinsic.py
+    python match3.py
     ```
- - Visualize stereo detected chessboard 
+ - Visualize frame matching. 
     ```ruby
-    python vis_chessboard.py
+    python match_vis_3.py
     ```
-## Reference
-- https://github.com/MobileRoboticsSkoltech/RecSync-android
+ - Stitch the matched frames
+    ```ruby
+    python stitch3.py
+    ```
 
 ## Acknowledgements
+Yubo Huang
